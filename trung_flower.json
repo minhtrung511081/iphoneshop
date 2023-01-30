@@ -1,0 +1,2199 @@
+{
+	"info": {
+		"_postman_id": "c608d1d3-830e-407f-ab99-774042cc19d2",
+		"name": "mysite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "flower",
+			"item": [
+				{
+					"name": "Statistics",
+					"item": [
+						{
+							"name": "manage categories flower",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "JWT {{accesstoken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"categories\": 2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/statistic/manageCategories/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"statistic",
+										"manageCategories",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "manage order",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "JWT {{accesstoken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id_invoice\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/statistic/order/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"statistic",
+										"order",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Statistics",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "JWT {{accesstoken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nameCategories\": \"hoa cuc do\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/statistic/statistics/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"statistic",
+										"statistics",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "total Benefits flower sales",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "JWT {{accesstoken}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Authorization",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nameCategories\": \"hoa cuc do\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/statistic/total/",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"statistic",
+										"total",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "AccountManagement",
+					"item": [
+						{
+							"name": "user",
+							"item": [
+								{
+									"name": "get Token User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2a8a8bca-63eb-44ee-8a69-d61f42a2fea9",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)\r",
+													"var accesstoken = jsonData.token\r",
+													"pm.globals.set('accesstoken',accesstoken)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"tai\",\r\n    \"password\": \"20101998\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/account/getToken/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"getToken",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "show all information user",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/account/accountList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"accountList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get Account  (User)",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/account/optionsAccountUser/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"optionsAccountUser",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update Account  (User)",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"tuan\",\r\n    \"first_name\": \"my\",\r\n    \"last_name\": \"name is tuan99\",\r\n    \"email\": \"tuan99@gmail.com\",\r\n    \"phone\": \"0772387101\",\r\n    \"address\": \"truong tho a can tho\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/account/optionsAccountUser/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"optionsAccountUser",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete Account",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {\r\n    \"username\": \"trung\",\r\n    \"first_name\": \"vo\",\r\n    \"last_name\": \"trung minh\",\r\n    \"email\": \"vmtrungx98@gmail.com\",\r\n    \"phone\": \"07718713211\",\r\n    \"address\": \"long thox\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/account/optionsAccountUser/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"optionsAccountUser",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "admin",
+							"item": [
+								{
+									"name": "get Token of Admin",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c2084942-694d-4558-9ebc-65315bad3727",
+												"exec": [
+													"var jsonData = JSON.parse(responseBody)\r",
+													"var accesstoken = jsonData.token\r",
+													"pm.environment.set('accesstoken',accesstoken)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"20101998\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/account/getToken/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"getToken",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get infomation account",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/account/accountList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"accountList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "3",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get one Account in (Admin)",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/account/optionsAccountListAdmin/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"optionsAccountListAdmin",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "put one Account (Admin)",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"username\": \"trung\",\r\n    \"is_superuser\": \"False\",\r\n    \"is_staff\": \"True\",\r\n    \"first_name\": \"\",\r\n    \"last_name\": \"\",\r\n    \"email\": \"trung98@gmail.com\",\r\n    \"phone\": \"07714248\",\r\n    \"address\": \"ap truong tho a\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/account/optionsAccountListAdmin/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"optionsAccountListAdmin",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "change Password",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"old_password\": \"20101996\",\r\n    \"new_password\": \"20101998\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/account/changePassword/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"changePassword",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "register Account",
+							"item": [
+								{
+									"name": "register Account",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"nhut\",\r\n    \"password\": \"20101998\",\r\n    \"email\": \"nhut98@gmail.com\",\r\n    \"first_name\": \"my\",\r\n    \"last_name\": \"name is nhut\",\r\n    \"address\": \"truong thanh can tho\",\r\n    \"phone\": \"0762387101\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/account/registerAccount/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"account",
+												"registerAccount",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "SalesManager",
+					"item": [
+						{
+							"name": "Sales Card",
+							"item": [
+								{
+									"name": "view list card sales",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/sales/SalesCartList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"SalesCartList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add card",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idSalesCart\": 2,\r\n    \"deleted\": null,\r\n    \"quantityOfProductsSold\": \"14.00\",\r\n    \"PriceOfProductsSold\": \"5.01\",\r\n    \"createdTime\": \"2020-01-08T06:00:00Z\",\r\n    \"updatedTime\": \"2020-03-31T04:50:40Z\",\r\n    \"productCode\": 2,\r\n    \"salesInvoicesCode\": 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/sales/SalesCartList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"SalesCartList",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "view one card",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/sales/DetailedSalesCart/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"DetailedSalesCart",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "edit card",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idSalesCart\": 2,\r\n    \"deleted\": null,\r\n    \"quantityOfProductsSold\": \"14.00\",\r\n    \"PriceOfProductsSold\": \"5.01\",\r\n    \"createdTime\": \"2020-01-08T06:00:00Z\",\r\n    \"updatedTime\": \"2020-03-31T04:50:40Z\",\r\n    \"productCode\": 2,\r\n    \"salesInvoicesCode\": 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/sales/DetailedSalesCart/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"DetailedSalesCart",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete card",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/sales/DetailedSalesCart/2/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"DetailedSalesCart",
+												"2",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "sales invoice",
+							"item": [
+								{
+									"name": "view list invoice sales",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{local}}/sales/SalesInvoicesList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"SalesInvoicesList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add sales invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"idSalesInvoices\": 3,\r\n        \"delete\": null,\r\n        \"dateCreateInvoice\": \"2020-01-06T04:49:28Z\",\r\n        \"idAccountCode\": 6\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/sales/SalesInvoicesList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"SalesInvoicesList",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "view one sales invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/sales/DetailedSalesInvoices/2/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"DetailedSalesInvoices",
+												"2",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "edit sales invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idSalesInvoices\": 3,\r\n    \"deleted\": null,\r\n    \"dateCreateInvoice\": \"2020-02-06T04:49:28Z\",\r\n    \"idAccountCode\": 6\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/sales/DetailedSalesInvoices/3/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"DetailedSalesInvoices",
+												"3",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete sales invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/sales/DetailedSalesInvoices/3/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"sales",
+												"DetailedSalesInvoices",
+												"3",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Product Manager",
+					"item": [
+						{
+							"name": "Product",
+							"item": [
+								{
+									"name": "view list product",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/product/ProductList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"ProductList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add product",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idProduct\": 4,\r\n    \"deleted\": null,\r\n    \"nameProduct\": \"hoa cuc vang\",\r\n    \"expiredProduct\": \"2020-08-11T10:34:32Z\",\r\n    \"quantityProduct\": \"20.00\",\r\n    \"categoriesCode\": 5\r\n        }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/product/ProductList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"ProductList",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "view detail one product",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/product/DetailedProduct/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"DetailedProduct",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "edit product",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idProduct\": 4,\r\n    \"deleted\": null,\r\n    \"nameProduct\": \"hoa cuc vang\",\r\n    \"expiredProduct\": \"2020-08-11T10:34:32Z\",\r\n    \"quantityProduct\": \"20.00\",\r\n    \"categoriesCode\": 5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/product/DetailedProduct/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"DetailedProduct",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete product",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/product/DetailedProduct/4/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"DetailedProduct",
+												"4",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "filter under name product and name categories flower",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/product/ProductList/?nameProduct=&categoriesCode=5",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"ProductList",
+												""
+											],
+											"query": [
+												{
+													"key": "nameProduct",
+													"value": ""
+												},
+												{
+													"key": "categoriesCode",
+													"value": "5"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Categories",
+							"item": [
+								{
+									"name": "CategoriesList",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/product/CategoriesList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"CategoriesList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "view object categories",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/product/DetailedCategories/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"DetailedCategories",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add Categories",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idCategories\": 8,\r\n    \"nameCategories\": \"hoa duong\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/product/CategoriesList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"CategoriesList",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "edit Categories",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idCategories\": 8,\r\n    \"nameCategories\": \"hoa ly\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/product/DetailedCategories/8/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"DetailedCategories",
+												"8",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete Categories",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/product/DetailedCategories/8/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"product",
+												"DetailedCategories",
+												"8",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Purchase Manager",
+					"item": [
+						{
+							"name": "Purchase Invoice",
+							"item": [
+								{
+									"name": "view purchase invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/PurchaseInvoiceList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"PurchaseInvoiceList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add purchase invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idPurchaseInvoice\": 3,\r\n    \"deleted\": null,\r\n    \"dateCreatePurchaseInvoice\": \"2020-05-27T02:03:55Z\",\r\n    \"accountCode\": 6,\r\n    \"sourceInputCode\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/purchase/PurchaseInvoiceList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"PurchaseInvoiceList",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "view one purchase invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/DetailedPurchaseInvoice/3/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedPurchaseInvoice",
+												"3",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "edit purchase invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idPurchaseInvoice\": 3,\r\n    \"deleted\": null,\r\n    \"dateCreatePurchaseInvoice\": \"2020-05-27T02:03:55Z\",\r\n    \"accountCode\": 6,\r\n    \"sourceInputCode\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/purchase/DetailedPurchaseInvoice/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedPurchaseInvoice",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete purchase invoice",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/DetailedPurchaseInvoice/3/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedPurchaseInvoice",
+												"3",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "9e5f5f94-d761-40d1-8fef-d1a933b12ed0",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "b6002494-f5da-4449-a663-a4d7674f1bdf",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Source Input",
+							"item": [
+								{
+									"name": "view list Source Input",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/SourceInputList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"SourceInputList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add source input",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idSourceInput\": 3,\r\n    \"addressSourceInput\": \"ap nhon ai\",\r\n    \"emailSourceInput\": \"nhut98@gmail.com\",\r\n    \"phoneSourceInput\": \"0762101790\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/purchase/SourceInputList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"SourceInputList",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "view one source input",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/DetailedSourceInput/3",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedSourceInput",
+												"3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "edit source input",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idSourceInput\": 3,\r\n    \"deleted\": null,\r\n    \"addressSourceInput\": \"ap nhon ai\",\r\n    \"emailSourceInput\": \"nhut98@gmail.com\",\r\n    \"phoneSourceInput\": \"0762101790\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/purchase/DetailedSourceInput/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedSourceInput",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete source input",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/DetailedSourceInput/3/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedSourceInput",
+												"3",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "purchase invoice detail",
+							"item": [
+								{
+									"name": "view list purchase invoice detail",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/PurchaseInvoiceDetailsList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"PurchaseInvoiceDetailsList",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "offset",
+													"value": "0",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add purchase invoice detatil",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"deleted\": null,\r\n    \"quantityOfPurchasedProducts\": \"7.00\",\r\n    \"buyProductPrice\": \"15.05\",\r\n    \"productCode\": 3,\r\n    \"purchaseInvoiceCode\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/purchase/PurchaseInvoiceDetailsList/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"PurchaseInvoiceDetailsList",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "view one purchase invoice detail",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/DetailedPurchaseInvoiceDetails/3/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedPurchaseInvoiceDetails",
+												"3",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add purchase invoice detail",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 3,\r\n    \"deleted\": null,\r\n    \"quantityOfPurchasedProducts\": \"7.00\",\r\n    \"buyProductPrice\": \"15.05\",\r\n    \"productCode\": 3,\r\n    \"purchaseInvoiceCode\": 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local}}/purchase/DetailedPurchaseInvoiceDetails/1/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedPurchaseInvoiceDetails",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete purchase invoice detail",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "JWT {{accesstoken}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "Authorization",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{local}}/purchase/DetailedPurchaseInvoiceDetails/3/",
+											"host": [
+												"{{local}}"
+											],
+											"path": [
+												"purchase",
+												"DetailedPurchaseInvoiceDetails",
+												"3",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
